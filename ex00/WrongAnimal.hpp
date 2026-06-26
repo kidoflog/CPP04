@@ -6,7 +6,7 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/26 14:36:12 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/26 15:06:14 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/26 15:10:42 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ class WrongAnimal {
   WrongAnimal();
   WrongAnimal(const WrongAnimal& src);
   WrongAnimal& operator=(const WrongAnimal& src);
-  virtual ~WrongAnimal();
+  ~WrongAnimal();
   void makeSound() const;
   std::string getType() const;
 
