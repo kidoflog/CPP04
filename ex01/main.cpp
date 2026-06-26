@@ -6,38 +6,55 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 12:51:06 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/14 21:42:12 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/26 15:02:25 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
-#include "ScavTrap.hpp"
+#include <iostream>
+
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
+#include "WrongAnimal.hpp"
+#include "WrongCat.hpp"
 
 int main() {
-  ScavTrap scav("Scavy");
-  scav.attack("TargetDummy");
-  ScavTrap gater("Gater");
-  gater.guardGate();
-  gater.guardGate();
-  gater.attack("Intruder");
-  ScavTrap weakling("NoEnergyBot");
-  std::cout << "--- エネルギーを50回消費させます ---" << std::endl;
-  for (int i = 0; i < 50; i++) {
-    weakling.attack("Training Dummy");
+  std::cout << "Polymorphism test:" << std::endl;
+  {
+    const Animal* meta = new Animal();
+    const Animal* j = new Dog();
+    const Animal* i = new Cat();
+
+    std::cout << "j (Dog) type: " << j->getType() << std::endl;
+    std::cout << "i (Cat) type: " << i->getType() << std::endl;
+
+    std::cout << "i (Cat): ";
+    i->makeSound();
+    std::cout << "j (Dog): ";
+    j->makeSound();
+    std::cout << "meta (Animal): ";
+    meta->makeSound();
+    delete meta;
+    delete j;
+    delete i;
   }
-  weakling.attack("Training Dummy");
-  weakling.beRepaired(10);
-  ScavTrap target("FragileBot");
-  target.takeDamage(120);
-  target.attack("Enemy");
-  target.beRepaired(10);
-  ScavTrap original("Original");
-  original.guardGate();
-  ScavTrap copy(original);
-  copy.attack("Enemy");
-  ScavTrap assign;
-  assign = original;
-  assign.attack("Enemy");
+
+  std::cout << "Wrong animal test" << std::endl;
+  {
+    const WrongAnimal* wrongMeta = new WrongAnimal();
+    const WrongAnimal* wrongCat = new WrongCat();
+
+    std::cout << "wrongCat type: " << wrongCat->getType() << std::endl;
+
+    std::cout << "wrongMeta (WrongAnimal): ";
+    wrongMeta->makeSound();
+
+    std::cout << "wrongCat:  ";
+    wrongCat->makeSound();
+
+    delete wrongMeta;
+    delete wrongCat;
+  }
 
   return 0;
 }

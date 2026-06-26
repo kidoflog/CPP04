@@ -6,13 +6,13 @@
 #    By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/04/12 16:22:21 by kkido             #+#    #+#              #
-#    Updated: 2026/06/14 21:37:09 by kkido            ###   ########.fr        #
+#    Updated: 2026/06/26 14:44:45 by kkido            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = scavtrap
+NAME = polymorphism
 
-SRCS = main.cpp ClapTrap.cpp ScavTrap.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp WrongAnimal.cpp WrongCat.cpp
 
 OBJDIR = objs
 OBJS = $(addprefix $(OBJDIR)/, $(SRCS:.cpp=.o))
