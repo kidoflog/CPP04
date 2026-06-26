@@ -6,11 +6,13 @@
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/14 12:51:06 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/24 19:12:11 by kkido            ###   ########.fr       */
+/*   Updated: 2026/06/26 13:47:06 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ClapTrap.hpp"
+#include "Animal.hpp"
+#include "Cat.hpp"
+#include "Dog.hpp"
 
 int main() {
   const Animal* meta = new Animal();
@@ -21,6 +23,5 @@ int main() {
   i->makeSound();  // will output the cat sound!
   j->makeSound();
   meta->makeSound();
-  ... return 0;
+  return 0;
 }
-To ensure you u

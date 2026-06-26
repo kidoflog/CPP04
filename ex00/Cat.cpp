@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Cat.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/26 12:51:30 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/26 13:47:59 by kkido            ###   ########.fr       */
+/*   Created: 2026/06/26 13:29:53 by kkido             #+#    #+#             */
+/*   Updated: 2026/06/26 13:46:46 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "Cat.hpp"
 
-#include <iostream>
-#include <string>
+Cat::Cat() {
+  type = "Cat";
+}
 
-class Animal {
- public:
-  Animal();
-  Animal(const Animal& src);
-  Animal& operator=(const Animal& src);
-  virtual ~Animal();
-  virtual void makeSound() const;
-  std::string getType() const;
+Cat::Cat(const Cat& src) : Animal(src) {
+}
 
- protected:
-  std::string type;
-};
+Cat& Cat::operator=(const Cat& src) {
+  if (this != &src) {
+    Animal::operator=(src);
+  }
+  return *this;
+}
 
-#endif
+Cat::~Cat() {
+}
+
+void Cat::makeSound() const {
+  std::cout << "Cat: Meow~ Purr..." << std::endl;
+}

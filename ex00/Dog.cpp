@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: kkido <kkido@student.42tokyo.jp>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/06/26 12:51:30 by kkido             #+#    #+#             */
-/*   Updated: 2026/06/26 13:47:59 by kkido            ###   ########.fr       */
+/*   Created: 2026/06/26 13:29:58 by kkido             #+#    #+#             */
+/*   Updated: 2026/06/26 13:46:58 by kkido            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-#define ANIMAL_HPP
+#include "Dog.hpp"
 
-#include <iostream>
-#include <string>
+Dog::Dog() {
+  type = "Dog";
+}
 
-class Animal {
- public:
-  Animal();
-  Animal(const Animal& src);
-  Animal& operator=(const Animal& src);
-  virtual ~Animal();
-  virtual void makeSound() const;
-  std::string getType() const;
+Dog::Dog(const Dog& src) : Animal(src) {
+}
 
- protected:
-  std::string type;
-};
+Dog& Dog::operator=(const Dog& src) {
+  if (this != &src) {
+    Animal::operator=(src);
+  }
+  return *this;
+}
 
-#endif
+Dog::~Dog() {
+}
+
+void Dog::makeSound() const {
+  std::cout << "Dog: Woof! Woof! Ruff!" << std::endl;
+}
